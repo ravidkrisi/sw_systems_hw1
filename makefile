@@ -35,5 +35,5 @@ maindrec: main.o libclassrec.so
 	gcc main.o ./libclassrec.so -lm -o maindrec
 	
 clean: 
-	rm *.o *.a *.so mains maindloop maindrec
+	rm *.o *.a *.so *.txt mains maindloop maindrec
 

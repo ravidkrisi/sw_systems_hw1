@@ -1,4 +1,4 @@
-all:loops recursives recursived loopd mains maindloop maindrec
+all: recursives recursived loopd mains maindloop maindrec
 
 main.o: main.c NumClass.h
 	gcc -c main.c

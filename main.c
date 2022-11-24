@@ -2,7 +2,6 @@
 #include "NumClass.h"
 
 int main(){
-    printf("enter your your first range number then the second\n");
     int x=-1, y=-1;
     scanf("%d%d",&x,&y);
 
@@ -26,5 +25,4 @@ int main(){
         if(isStrong(i)==1) printf(" %d",i);
     }
     
-    printf("\n");
 }

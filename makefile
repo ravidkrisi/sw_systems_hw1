@@ -12,17 +12,25 @@ advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
 advancedClassificationLoop.o: advancedClassificationLoop.c NumClass.h
 	gcc -Wall -fPIC -c advancedClassificationLoop.c 
 
-recursives: basicClassification.o advancedClassificationRecursion.o NumClass.h
+libclassrec.a: basicClassification.o advancedClassificationRecursion.o NumClass.h
 	 ar rcs libclassrec.a basicClassification.o  advancedClassificationRecursion.o
 
-loops: basicClassification.o advancedClassificationLoop.o NumClass.h
-	 ar rcs libclassrec.a basicClassification.o advancedClassificationLoop.o 				
+libclassloops.a: basicClassification.o advancedClassificationLoop.o NumClass.h
+	 ar rcs libclassloops.a basicClassification.o advancedClassificationLoop.o 				
 
-recursived: basicClassification.o advancedClassificationRecursion.o NumClass.h
+libclassrec.so: basicClassification.o advancedClassificationRecursion.o NumClass.h
 	gcc -shared basicClassification.o advancedClassificationRecursion.o -o libclassrec.so 
 
-loopd: basicClassification.o advancedClassificationLoop.o
+libclassloops.so: basicClassification.o advancedClassificationLoop.o
 	gcc -shared basicClassification.o advancedClassificationLoop.o -o libclassloops.so
+	
+loops: libclassloops.a
+
+recursives: libclassrec.a
+
+loopd: libclassloops.so
+
+recursived: libclassrec.so
 	
 
 mains: main.o libclassrec.a
